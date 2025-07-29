@@ -1,8 +1,10 @@
 let BagItems = []
 onload()
-function onLoad{
+function onLoad(){
     displayItemonHomePage();
     displayBagIcon()
+    let bagItemsStr =  localStorage.setItem('bagItems')
+    bagItems = bagItemsStr ? JSON.parse(bagItemsStr) : []
 }
 displayItemonHomePage();
 
@@ -10,6 +12,7 @@ function addToBag(itemId){
 
     BagItems.push(itemId)
     displayBagIcon()
+    localStorage.setItem('bagItems' , JSON.stringify(bagItems))
 }
 
 function displayBagIcon(){
