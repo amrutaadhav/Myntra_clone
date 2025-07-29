@@ -1,4 +1,14 @@
-let itemContainerElement = document.querySelector(".items-container")
+let BagItems = []
+
+displayItemonHomePage();
+
+function addToBag(itemId){
+
+    BagItems.push(itemId);
+}
+function displayItemonHomePage(){
+
+    let itemContainerElement = document.querySelector(".items-container")
 
 
 let innerHTML = " "
@@ -13,11 +23,14 @@ DataTransferItemList.forEach(item =>{
         <span class="original-price">${item.original_price}</span>
         <span class="discount">${item.discount}</span>
         </div>
-        <button class="btn-add-bag">Add to Bag</button>
+        <button class="btn-add-bag" onclick = " addToBag (${item.id})">Add to Bag</button>
         </div>  `
 
 
 })
+
+}
+
 
 
 
