@@ -1,61 +1,53 @@
-let BagItems = []
-onload()
-function onLoad(){
-    displayItemonHomePage();
-    displayBagIcon()
-    let bagItemsStr =  localStorage.setItem('bagItems')
-    bagItems = bagItemsStr ? JSON.parse(bagItemsStr) : []
+
+let bagItems;
+onLoad();
+
+function onLoad() {
+  let bagItemsStr = localStorage.getItem('bagItems');
+  bagItems = bagItemsStr ? JSON.parse(bagItemsStr) : [];
+  displayItemsOnHomePage();
+  displayBagIcon();
 }
-displayItemonHomePage();
-
-function addToBag(itemId){
-
-    BagItems.push(itemId)
-    displayBagIcon()
-    localStorage.setItem('bagItems' , JSON.stringify(bagItems))
-}
-
-function displayBagIcon(){
-    let bagItemsCountElement = document.querySelector(".bag-item-count")
-    if(bagItems.length > 0){
-        bagItemsCountElement.computedStyleMap.visibility = "visible"
-         bagItemsCountElement.innerText = bagItems.length
-    }
-    else{
-         bagItemsCountElement.computedStyleMap.visibility = "hidden"
-
-    }
-   
-
-
-}
-function displayItemonHomePage(){
-
-    let itemContainerElement = document.querySelector(".items-container")
-
-
-let innerHTML = " "
-DataTransferItemList.forEach(item =>{
- innerHTML += `<div class="item-container">
-        <img class="item-image" src ="${item.image}" alt="img">
-        <div class = "rating">${item.rating.start} ⭐${item.rating.end}  </div>
-        <div class="company">${item.company}</div>
-        <div class="item-name">${item.item_name}</div>
-        <div class="price">
-        <span class="current-price">${item.current_price}</span>
-        <span class="original-price">${item.original_price}</span>
-        <span class="discount">${item.discount}</span>
-        </div>
-        <button class="btn-add-bag" onclick = " addToBag (${item.id})">Add to Bag</button>
-        </div>  `
-
-
-})
-
+ 
+function addToBag(itemId) {
+  bagItems.push(itemId);
+  localStorage.setItem('bagItems', JSON.stringify(bagItems));
+  displayBagIcon();
 }
 
+function displayBagIcon() {
+  let bagItemCountElement = document.querySelector('.bag-item-count');
+  if (bagItems.length > 0) {
+    console.log('I am here');
+    bagItemCountElement.style.visibility = 'visible';
+    bagItemCountElement.innerText = bagItems.length;
+  } else {
+    bagItemCountElement.style.visibility = 'hidden';
+  }
+}
 
-
-
-
-itemContainerElement.innerHTML = innerHTML
+function displayItemsOnHomePage() {
+  let itemsContainerElement = document.querySelector('.items-container');
+  if (!itemsContainerElement) {
+    return;
+  }
+  let innerHtml = '';
+  items.forEach(item => {
+    innerHtml += `
+    <div class="item-container">
+      <img class="item-image" src="${item.image}" alt="item image">
+      <div class="rating">
+          ${item.rating.stars} ⭐ | ${item.rating.count}
+      </div>
+      <div class="company-name">${item.company}</div>
+      <div class="item-name">${item.item_name}</div>
+      <div class="price">
+          <span class="current-price">Rs ${item.current_price}</span>
+          <span class="original-price">Rs ${item.original_price}</span>
+          <span class="discount">(${item.discount}% OFF)</span>
+      </div>
+      <button class="btn-add-bag" onclick="addToBag(${item.id})">Add to Bag</button>
+    </div>`
+  });
+  itemsContainerElement.innerHTML = innerHtml;
+}

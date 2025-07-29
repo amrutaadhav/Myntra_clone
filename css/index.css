@@ -1,9 +1,20 @@
-
 /***************** Item Page CSS **************************/
-/* 
- 
- 
- 
+/*.action_container {
+    text-decoration: none;
+}
+a.action_container:link {
+    color:black;
+}
+.item-details {
+    cursor: pointer;
+    width: 250px;
+    margin: 10px;
+}
+.stars {
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+}
 .company {
     font-size: 18px;
     font-weight: 700;
@@ -27,7 +38,27 @@
     font-weight: 400;
     display: block;
 }
- 
+.price-container {
+    margin-top: 10px;
+}
+.current-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #282c3f;
+}
+.original-price {
+    text-decoration: line-through;
+    color: #7e818c;
+    font-weight: 400;
+    margin-left: 5px;
+    font-size: 12px;
+}
+.discount-percentage {
+    color: #ff905a;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 5px;
+}
 .btn-bag {
     background-color: lightgreen;
     border: none;
@@ -158,7 +189,7 @@ header {
     font-weight: 700;
 }
 
-.category-items , .item-container {
+.category-items, .items-container {
     width: 80%;
     margin: 50px 10%;
     display: flex;
@@ -200,34 +231,34 @@ header {
     text-align: end;
     padding: 15px;
 }
-.items-container{
+
+.items-container {
     width: 80%;
     margin: 40px 10%;
 }
-.item-container{
+.item-container {
     width: 250px;
-
+    margin: 10px;
 }
-.item-image{
+.item-image {
     width: 100%;
-
 }
-.rating{
+.rating {
     font-size: 12px;
     font-weight: 700;
-
 }
-.company{
-    display: block;
-    font-size: 1.17em;
-    margin-block-end: 1em;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-    margin-top: 10px;
-
+.company-name {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: #282c3f;
+    margin-bottom: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.item-name{
+.item-name {
     color: #535766;
     font-size: 14px;
     line-height: 1;
@@ -238,39 +269,33 @@ header {
     white-space: nowrap;
     font-weight: 400;
     display: block;
-
 }
-.price{
-     margin-top: 10px;
+.price {
+    margin-top: 10px;
     font-size: 14px;
     line-height: 15px;
     color: #282c3f;
     white-space: nowrap;
-
 }
-.current-price{
+.current-price {
     font-size: 14px;
     font-weight: 700;
     color: #282c3f;
-
-
 }
-.original-price{
+.original-price {
     text-decoration: line-through;
     color: #7e818c;
     font-weight: 400;
     margin-left: 5px;
     font-size: 12px;
-
 }
-.discount{
-     color: #ff905a;
+.discount {
+    color: #ff905a;
     font-weight: 400;
     font-size: 12px;
     margin-left: 5px;
-
 }
-.btn-add-bag{
+.btn-add-bag {
     margin-top: 8px;
     font-size: 18px;
     width: 100%;
@@ -279,12 +304,8 @@ header {
     padding: 5px 15px;
     border-radius: 10px;
     cursor: pointer;
-
 }
-.item-container{
-    margin: 10px;
-}
-.bag-item-count{
+.bag-item-count {
     background-color: #f16565;
     white-space: nowrap;
     text-align: center;
@@ -299,5 +320,10 @@ header {
     top: -44px;
     font-weight: 700;
     cursor: pointer;
-
+}
+.action_container {
+    text-decoration: none;
+}
+a.action_container:link {
+    color:black;
 }
