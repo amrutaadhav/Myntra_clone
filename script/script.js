@@ -1,10 +1,30 @@
 let BagItems = []
-
+onload()
+function onLoad{
+    displayItemonHomePage();
+    displayBagIcon()
+}
 displayItemonHomePage();
 
 function addToBag(itemId){
 
-    BagItems.push(itemId);
+    BagItems.push(itemId)
+    displayBagIcon()
+}
+
+function displayBagIcon(){
+    let bagItemsCountElement = document.querySelector(".bag-item-count")
+    if(bagItems.length > 0){
+        bagItemsCountElement.computedStyleMap.visibility = "visible"
+         bagItemsCountElement.innerText = bagItems.length
+    }
+    else{
+         bagItemsCountElement.computedStyleMap.visibility = "hidden"
+
+    }
+   
+
+
 }
 function displayItemonHomePage(){
 
